@@ -37,7 +37,7 @@ export function Footer() {
 
                     {/* Right Side - Chef Mascot (Shifted Right & Down) */}
                     <div className="relative w-full h-[350px] sm:h-[400px] lg:h-auto pointer-events-none z-10 flex overflow-visible">
-                        <div className="absolute -bottom-30 md:-bottom-20 -right-8 md:-right-24 lg:-right-32 w-[100%] h-[100%] md:w-[110%] md:h-[110%] lg:h-[1200%] min-h-[400px]">
+                        <div className="absolute -bottom-8 md:-bottom-20 -right-8 md:-right-24 lg:-right-32 w-[110%] h-[110%] md:w-[120%] md:h-[120%] lg:w-[140%] lg:h-[140%] min-h-[400px]">
                             <Image
                                 src="/images/maskot.png"
                                 alt="John Filippo Şef Maskotu"
