@@ -1,0 +1,173 @@
+"use client";
+
+import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+
+const MENU_ITEMS_LEFT = [
+    {
+        name: "Margherita Pizza",
+        price: "249 TL",
+        description: "Rende mozzarella, domates sos, pesto sos, fesleğen",
+    },
+    {
+        name: "Mantarlı Pizza",
+        price: "349 TL",
+        description: "Rende Mozzarella, Domates Sos, Mantar, Ricotta, Kekik, Pesto Sos",
+    },
+    {
+        name: "Sucuklu Pizza",
+        price: "449 TL",
+        description: "Rende Mozzarella, Domates Sos, Dana Sucuk, Mısır",
+    },
+    {
+        name: "Karışık Pizza",
+        price: "499 TL",
+        description: "Rende Mozzarella, Domates Sos, Salam, Sosis, Sucuk, Mantar, Köy Biberi, Kırmızı Biber, Dilim Zeytin, Kekik, Mısır, Cherry Domates",
+    },
+    {
+        name: "Vejeteryan Pizza",
+        price: "249 TL",
+        description: "Rende Mozzarella, Domates Sos, Patlıcan, Ispanak, Kabak, Mantar, Parmesan",
+    },
+];
+
+const MENU_ITEMS_RIGHT = [
+    {
+        name: "Füme Kaburga Pizza",
+        price: "749 TL",
+        description: "Rende mozzarella, domates sos, füme kaburga, roka, parmesan",
+    },
+    {
+        name: "Ricotta Funghi Pizza",
+        price: "419 TL",
+        description: "Rende Mozzarella, Domates Sos, Ricotta, Kokteyl Domates, Taze Kekik",
+    },
+    {
+        name: "Bbq Tavuklu Pizza",
+        price: "419 TL",
+        description: "Rende Mozzarella, Domates Sos, Mısır, BBQ Soslu Tavuk Dilimleri, Kırmızı Soğan",
+    },
+    {
+        name: "Pesto Pizza",
+        price: "419 TL",
+        description: "Pesto Sos, Suda Mozzarella, Limon Zest, File Badem, Mantar",
+    },
+    {
+        name: "Paris Soslu Pizza",
+        price: "749 TL",
+        description: "Rende mozzarella, paris sos, dana nuar, kibrit patates, parmesan",
+    },
+];
+
+function MenuItem({ item, index }: { item: typeof MENU_ITEMS_LEFT[0]; index: number }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.05 }}
+            className="group py-4 border-b border-gray-200/50 last:border-none"
+        >
+            <div className="flex items-baseline gap-2">
+                <h4 className="text-base md:text-lg font-bold text-[var(--color-text-primary)] whitespace-nowrap group-hover:text-[var(--color-secondary)] transition-colors">
+                    {item.name}
+                </h4>
+                <div className="dotted-leader" />
+                <span className="text-base md:text-lg font-bold text-[var(--color-text-primary)] whitespace-nowrap">
+                    {item.price}
+                </span>
+            </div>
+            <p className="text-xs md:text-sm text-[var(--color-text-muted)] mt-1 leading-relaxed">
+                {item.description}
+            </p>
+        </motion.div>
+    );
+}
+
+export function MenuList() {
+    return (
+        <section className="relative py-16 md:py-24 bg-[var(--color-warm-white)] overflow-hidden">
+            {/* Left Orange Pattern (2 Kat Büyük & Limitli Tekrar) */}
+            <div 
+                className="absolute top-0 left-0 w-24 md:w-36 z-0 pointer-events-none"
+                style={{
+                    height: "800px", // Limits repeats visually
+                    backgroundImage: "url('/images/pizza-pattern-turuncu.png')",
+                    backgroundRepeat: "repeat-y",
+                    backgroundSize: "100% auto", // Fills width, expands height proportionally (2x previous size basically since div is larger)
+                    backgroundPosition: "top left"
+                }}
+            />
+
+            {/* Right Blue Pattern (2 Kat Büyük & Limitli Tekrar) */}
+            <div 
+                className="absolute top-0 right-0 w-24 md:w-36 z-0 pointer-events-none"
+                style={{
+                    height: "800px",
+                    backgroundImage: "url('/images/pizza-pattern-mavi.png')",
+                    backgroundRepeat: "repeat-y",
+                    backgroundSize: "100% auto",
+                    backgroundPosition: "top right"
+                }}
+            />
+
+            {/* Bottom Left Image (Slice on Peel) */}
+            <div className="absolute bottom-10 left-8 md:left-[12%] w-32 h-32 md:w-36 md:h-36 z-0 pointer-events-none">
+                <Image
+                    src="/images/eryaman-en-iyi-pizzaci.png"
+                    alt="Pizza Dilimi"
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
+            {/* Bottom Right Image (Full Pizza) */}
+            <div className="absolute -bottom-0 right-4 md:right-[10%] w-28 h-28 md:w-36 md:h-36 z-0 pointer-events-none">
+                <Image
+                    src="/images/eryaman-el-yapımı-pizza.png"
+                    alt="Tam Pizza"
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
+            <Container className="relative z-10">
+                {/* Menu Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-0">
+                    {/* Left Column */}
+                    <div>
+                        {MENU_ITEMS_LEFT.map((item, index) => (
+                            <MenuItem key={item.name} item={item} index={index} />
+                        ))}
+                    </div>
+                    {/* Right Column */}
+                    <div>
+                        {MENU_ITEMS_RIGHT.map((item, index) => (
+                            <MenuItem key={item.name} item={item} index={index + MENU_ITEMS_LEFT.length} />
+                        ))}
+                    </div>
+                </div>
+
+                {/* CTA Button */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mt-12"
+                >
+                    <Link href="/eryaman/menu">
+                        <Button className="rounded-full px-8 py-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-bold">
+                            HEPSİNİ İNCELE
+                        </Button>
+                    </Link>
+                    <p className="text-sm text-[var(--color-text-muted)] mt-3">
+                        Tüm menüyü incelemek için tıklayınız
+                    </p>
+                </motion.div>
+            </Container>
+        </section>
+    );
+}
