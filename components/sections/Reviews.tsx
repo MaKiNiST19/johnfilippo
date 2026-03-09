@@ -9,7 +9,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const REVIEWS = [
     {
         id: 1,
-        text: "Eryaman'da yediğim tartışmasız en iyi pizza. Hamuru o kadar ince ve çıtır ki, her ısırıkta İtalya'daymış gibi hissediyorsunuz. Servis de çok hızlıydı.",
+        text: "Eryaman&apos;da yediğim tartışmasız en iyi pizza. Hamuru o kadar ince ve çıtır ki, her ısırıkta İtalya&apos;daymış gibi hissediyorsunuz. Servis de çok hızlıydı.",
         author: "Ahmet Yılmaz",
         rating: 5
     },
@@ -21,7 +21,7 @@ const REVIEWS = [
     },
     {
         id: 3,
-        text: "Malzeme kalitesi kendini belli ediyor. Dondurulmuş ürün kullanmadıkları çok açık. Fiyat/performans olarak Ankara'nın en iyilerinden.",
+        text: "Malzeme kalitesi kendini belli ediyor. Dondurulmuş ürün kullanmadıkları çok açık. Fiyat/performans olarak Ankara&apos;nın en iyilerinden.",
         author: "Mehmet Kaya",
         rating: 5
     }
@@ -30,14 +30,6 @@ const REVIEWS = [
 export function Reviews() {
     const [activeIndex, setActiveIndex] = useState(0);
 
-    // Auto-advance
-    useEffect(() => {
-        const timer = setInterval(() => {
-            nextReview();
-        }, 5000);
-        return () => clearInterval(timer);
-    }, [activeIndex]);
-
     const nextReview = () => {
         setActiveIndex((prev) => (prev + 1) % REVIEWS.length);
     };
@@ -45,6 +37,14 @@ export function Reviews() {
     const prevReview = () => {
         setActiveIndex((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
     };
+
+    // Auto-advance
+    useEffect(() => {
+        const timer = setInterval(() => {
+            nextReview();
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [activeIndex]);
 
     return (
         <section className="relative py-24 bg-zinc-900 overflow-hidden text-white">
@@ -58,7 +58,7 @@ export function Reviews() {
             <Container className="relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">Mutlu Misafirlerimiz</h2>
-                    <p className="text-white/60">Google'da 4.8/5.0 Puan</p>
+                    <p className="text-white/60">Google&apos;da 4.8/5.0 Puan</p>
                 </div>
 
                 <div className="relative min-h-[300px] flex items-center justify-center">

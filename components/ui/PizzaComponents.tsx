@@ -30,7 +30,7 @@ export function FloatingChip({
                     repeatType: "reverse",
                     duration: 3,
                     ease: "easeInOut",
-                    delay: delay + Math.random() * 2
+                    delay: delay
                 }
             }}
             className={cn(
@@ -50,7 +50,7 @@ export function FeatureCard({
     description,
     index
 }: {
-    icon: any,
+    icon: React.ElementType,
     title: string,
     description: string,
     index: number

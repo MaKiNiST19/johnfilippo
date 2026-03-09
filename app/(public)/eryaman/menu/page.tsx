@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { Phone, MapPin } from 'lucide-react'
 
 import { Container } from '@/components/ui/Container'
@@ -7,6 +7,9 @@ import { FadeInUp } from '@/components/ui/FadeInUp'
 import { MenuCategoryNav } from '@/components/ui/MenuCategoryNav'
 import { MenuItemCard } from '@/components/ui/MenuItemCard'
 import { createClient } from '@/lib/supabase/server'
+import type { Database } from '@/types/database'
+
+type MenuItemRow = Database['public']['Views']['v_menu_items_with_details']['Row']
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -117,13 +120,13 @@ interface Category {
 }
 
 export default async function MenuPage() {
-    const supabase = await createClient()
-
-    // Try to fetch menu data from Supabase
+    // Initial state
     let categories: Category[] = []
     let hasRealData = false
 
     try {
+        const supabase = await createClient()
+
         // Get menu items view from Supabase
         const { data: menuData, error } = await supabase
             .from('v_menu_items_with_details')
@@ -137,7 +140,7 @@ export default async function MenuPage() {
             // Group by category
             const categoryMap = new Map<string, Category>()
 
-            for (const item of menuData as any[]) {
+            for (const item of menuData as MenuItemRow[]) {
                 if (!categoryMap.has(item.category_id)) {
                     categoryMap.set(item.category_id, {
                         id: item.category_id,

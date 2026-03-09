@@ -12,7 +12,7 @@ export function Hero() {
     });
 
     const yBackground = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-    const opacityOverlay = useTransform(scrollYProgress, [0, 0.5], [1, 0.5]);
+
 
     return (
         <section ref={ref} className="relative min-h-[60vh] md:min-h-[85vh] overflow-hidden">

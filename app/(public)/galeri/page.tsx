@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
-import { Section, SectionTitle } from '@/components/ui/Section'
+import { Section } from '@/components/ui/Section'
 import { FadeInUp, StaggerContainer, StaggerItem } from '@/components/ui/FadeInUp'
 
 // SEO Metadata

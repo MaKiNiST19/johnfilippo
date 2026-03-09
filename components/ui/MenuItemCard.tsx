@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 interface MenuItemCardProps {
     name: string
@@ -33,11 +34,12 @@ export function MenuItemCard({
         >
             {/* Image */}
             {imageUrl && (
-                <div className="aspect-[4/3] overflow-hidden">
-                    <img
+                <div className="aspect-[4/3] relative overflow-hidden">
+                    <Image
                         src={imageUrl}
                         alt={name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                 </div>
             )}
@@ -64,7 +66,7 @@ export function MenuItemCard({
                         {name}
                     </h3>
                     <span className="shrink-0 text-lg font-bold text-[var(--color-primary)]">
-                        ₺{price.toFixed(0)}
+                        ₺{Number(price).toFixed(0)}
                     </span>
                 </div>
 

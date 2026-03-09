@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { Phone, MapPin, Clock, MessageCircle, Mail } from 'lucide-react'
+import { Phone, MapPin, Clock, MessageCircle } from 'lucide-react'
 
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
@@ -50,7 +50,7 @@ const contactMethods = [
         description: 'Hızlı mesajlaşma',
         value: CONTACT_INFO.whatsapp,
         link: CONTACT_INFO.whatsappLink,
-        linkText: 'WhatsApp\'tan Yaz',
+        linkText: 'WhatsApp&apos;tan Yaz',
         external: true,
     },
     {

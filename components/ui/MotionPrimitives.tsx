@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, HTMLMotionProps } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 // FadeInUp Wrapper
 interface FadeInUpProps extends HTMLMotionProps<"div"> {
@@ -95,7 +94,7 @@ export function ScaleIn({ children, className, delay = 0, ...props }: HTMLMotion
 }
 
 // Parallax Text/Element
-export function ParallaxElement({ children, y, className }: { children: React.ReactNode, y: any, className?: string }) {
+export function ParallaxElement({ children, y, className }: { children: React.ReactNode, y: import("framer-motion").MotionValue<number>, className?: string }) {
     return (
         <motion.div style={{ y }} className={className}>
             {children}
