@@ -2,13 +2,51 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+
+interface MenuOffer {
+    title: string;
+    description: string;
+    price: string;
+}
+
+const MENU_OFFERS: MenuOffer[] = [
+    {
+        title: "Menü 1",
+        description: "1 ADET MARGARİTA + 1 ADET KUTU İÇECEK",
+        price: "309.9 ₺",
+    },
+    {
+        title: "Menü 2",
+        description: "1 ADET 4 PEYNİRLİ + 1 ADET KUTU İÇECEK",
+        price: "509.9 ₺",
+    },
+    {
+        title: "Menü 3",
+        description: "1 ADET KARIŞIK PİZZA + 1 ADET KUTU İÇECEK",
+        price: "549.9 ₺",
+    },
+    {
+        title: "Menü 4",
+        description: "1 ADET SUCUKLU PİZZA + 1 ADET KUTU İÇECEK",
+        price: "499.9 ₺",
+    },
+    {
+        title: "Menü 5",
+        description: "1 ADET FÜME KABURGA PİZZA + 1 ADET KUTU İÇECEK",
+        price: "799.9 ₺",
+    },
+    {
+        title: "Menü 6 (İki Kişilik)",
+        description:
+            "1 ADET KARIŞIK PİZZA, 1 ADET SEÇİLECEK KLASİK PİZZA, 1 ADET ÇITIR TAVUK, 2 ADET TİRAMİSU, 1 ADET LİTRELİK İÇECEK",
+        price: "1399.9 ₺",
+    },
+];
 
 export function PromoBanner() {
     return (
         <section className="relative overflow-visible bg-[var(--color-cream)]">
-            <div className="grid grid-cols-1 lg:grid-cols-3 min-h-[500px] lg:h-[600px]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] min-h-[500px]">
                 {/* Left - Pizza Image */}
                 <div className="relative h-80 lg:h-auto z-10">
                     <Image
@@ -16,90 +54,36 @@ export function PromoBanner() {
                         alt="Hafta içi indirim pizza"
                         fill
                         className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 33vw"
+                        sizes="(max-width: 1024px) 100vw, 25vw"
                     />
-                    {/* Floating Cheese Image on the right edge (Shrunk by 45% + Moved 2rem Left) */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="absolute top-1/2 right-4 md:right-6 transform -translate-y-1/2 z-30 w-16 h-16 md:w-20 md:h-20"
-                    >
-                        <Image
-                            src="/images/peynir.png"
-                            alt="Eriyen Peynir"
-                            fill
-                            className="object-contain"
-                        />
-                    </motion.div>
                 </div>
 
-                {/* Center - Promo Text */}
-                <div className="relative flex flex-col items-center justify-center py-12 px-6 text-center h-full z-20">
-                    {/* Right side leaf image (10% Smaller and 2rem Down) */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20, rotate: 15 }}
-                        whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-                        viewport={{ once: true }}
-                        className="absolute top-[25%] right-24 md:right-36 w-9 h-9 md:w-12 md:h-12 z-20 pointer-events-none"
-                    >
-                        <Image
-                            src="/images/yaprak.png"
-                            alt="Yaprak"
-                            fill
-                            className="object-contain"
-                        />
-                    </motion.div>
-
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-2xl md:text-3xl lg:text-3xl font-black text-[var(--color-secondary)] leading-tight mb-2"
-                    >
-                        HAFTA İÇİ SAAT
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-2xl md:text-3xl lg:text-3xl font-black text-[var(--color-secondary)] leading-tight mb-4"
-                    >
-                        12:00 -17:00 ARASI
-                    </motion.p>
-                    <motion.p
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-5xl md:text-6xl lg:text-7xl font-black text-[var(--color-secondary)] mb-8"
-                    >
-                        %10 İNDİRİM
-                    </motion.p>
-
-                    {/* Pizza slice illustration (Enlarged and Overflowing) */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30, rotate: -15 }}
-                        whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="absolute -bottom-10 -left-10 md:-bottom-16 md:-left-16 z-30 w-32 h-32 md:w-44 md:h-44"
-                    >
-                        <Image
-                            src="/images/slice-pizza.png"
-                            alt="Pizza Slice Element"
-                            fill
-                            className="object-contain"
-                        />
-                    </motion.div>
-
-                    <Link href="/eryaman/menu">
-                        <Button className="rounded-2xl px-12 py-6 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-bold text-lg shadow-xl uppercase transition-all hover:scale-105 active:scale-95 group relative overflow-hidden">
-                            <span className="relative z-10">MENÜYÜ İNCELE</span>
-                            <div className="absolute inset-0 bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                        </Button>
-                    </Link>
+                {/* Center - 6 Menu Offers */}
+                <div className="relative flex flex-col items-center justify-center py-10 px-4 md:px-8 z-20">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+                        {MENU_OFFERS.map((offer, i) => (
+                            <motion.div
+                                key={offer.title}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.06 }}
+                                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 p-4 flex flex-col justify-between text-center border border-[var(--color-secondary)]/10"
+                            >
+                                <div>
+                                    <h3 className="text-base md:text-lg font-black text-[var(--color-secondary)] mb-2 uppercase">
+                                        {offer.title}
+                                    </h3>
+                                    <p className="text-xs md:text-sm text-[var(--color-text-secondary)] leading-snug mb-3">
+                                        {offer.description}
+                                    </p>
+                                </div>
+                                <p className="text-lg md:text-xl font-black text-[var(--color-dark)]">
+                                    {offer.price}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Right - Restaurant Interior Image */}
@@ -109,7 +93,7 @@ export function PromoBanner() {
                         alt="Restaurant atmosferi"
                         fill
                         className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 33vw"
+                        sizes="(max-width: 1024px) 100vw, 25vw"
                     />
                 </div>
             </div>

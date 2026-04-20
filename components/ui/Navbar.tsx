@@ -4,7 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, QrCode } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
@@ -19,6 +19,8 @@ const links = [
 export function Navbar() {
     const [isOpen, setIsOpen] = React.useState(false)
     const [scrolled, setScrolled] = React.useState(false)
+    const [qrHover, setQrHover] = React.useState(false)
+    const [qrPanelOpen, setQrPanelOpen] = React.useState(false)
     const pathname = usePathname()
 
     React.useEffect(() => {
@@ -30,6 +32,7 @@ export function Navbar() {
 
     React.useEffect(() => {
         setIsOpen(false)
+        setQrPanelOpen(false)
     }, [pathname])
 
     const handleLogoClick = (e: React.MouseEvent) => {
@@ -62,7 +65,7 @@ export function Navbar() {
                                     height={0}
                                     sizes="50vw"
                                     className="h-full w-auto object-contain"
-                                    style={{ width: "auto", height: "100%" }}
+                                    style={{ width: 'auto', height: '100%' }}
                                     priority
                                 />
                             </div>
@@ -86,14 +89,58 @@ export function Navbar() {
                             ))}
                         </nav>
 
-                        {/* Mobile Menu Toggle */}
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="lg:hidden p-2 text-[var(--color-text-secondary)]"
-                            aria-label="Menüyü aç"
-                        >
-                            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                        </button>
+                        {/* Right side actions */}
+                        <div className="flex items-center gap-2">
+                            {/* QR Icon — desktop hover, mobile tap */}
+                            <div
+                                className="relative"
+                                onMouseEnter={() => setQrHover(true)}
+                                onMouseLeave={() => setQrHover(false)}
+                            >
+                                <button
+                                    type="button"
+                                    onClick={() => setQrPanelOpen(true)}
+                                    className="p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-secondary)] transition-colors"
+                                    aria-label="QR Menü"
+                                >
+                                    <QrCode className="h-6 w-6" />
+                                </button>
+
+                                {/* Desktop hover slide-down */}
+                                <AnimatePresence>
+                                    {qrHover && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            transition={{ duration: 0.25 }}
+                                            className="hidden lg:block absolute top-full right-0 mt-3 bg-white rounded-2xl shadow-2xl p-4 border border-gray-100"
+                                        >
+                                            <div className="relative w-56 h-56">
+                                                <Image
+                                                    src="/images/qr.jpg"
+                                                    alt="QR Menü"
+                                                    fill
+                                                    className="object-contain rounded-xl"
+                                                />
+                                            </div>
+                                            <p className="text-center text-sm font-medium text-[var(--color-text-secondary)] mt-2">
+                                                QR Menü
+                                            </p>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+
+                            {/* Mobile Menu Toggle */}
+                            <button
+                                onClick={() => setIsOpen(!isOpen)}
+                                className="lg:hidden p-2 text-[var(--color-text-secondary)]"
+                                aria-label="Menüyü aç"
+                            >
+                                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                            </button>
+                        </div>
                     </div>
                 </Container>
             </div>
@@ -127,6 +174,54 @@ export function Navbar() {
                             ))}
                         </Container>
                     </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Mobile QR Side Panel */}
+            <AnimatePresence>
+                {qrPanelOpen && (
+                    <>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setQrPanelOpen(false)}
+                            className="lg:hidden fixed inset-0 bg-black/50 z-[60]"
+                        />
+                        <motion.aside
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: 'tween', duration: 0.3 }}
+                            className="lg:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white z-[70] shadow-2xl flex flex-col"
+                        >
+                            <div className="flex items-center justify-between p-4 border-b">
+                                <h2 className="text-lg font-bold text-[var(--color-text-primary)]">
+                                    QR Menü
+                                </h2>
+                                <button
+                                    onClick={() => setQrPanelOpen(false)}
+                                    className="p-2 text-[var(--color-text-secondary)]"
+                                    aria-label="Kapat"
+                                >
+                                    <X className="h-6 w-6" />
+                                </button>
+                            </div>
+                            <div className="flex-1 flex items-center justify-center p-6">
+                                <div className="relative w-full aspect-square max-w-[320px]">
+                                    <Image
+                                        src="/images/qr.jpg"
+                                        alt="QR Menü"
+                                        fill
+                                        className="object-contain rounded-2xl"
+                                    />
+                                </div>
+                            </div>
+                            <p className="text-center text-sm text-[var(--color-text-secondary)] pb-6 px-6">
+                                Telefonunuzla QR kodu okutarak menüye anında ulaşın.
+                            </p>
+                        </motion.aside>
+                    </>
                 )}
             </AnimatePresence>
         </header>
