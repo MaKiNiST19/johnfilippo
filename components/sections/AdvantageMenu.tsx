@@ -11,7 +11,7 @@ export function AdvantageMenu() {
                 {/* Image Side */}
                 <div className="relative w-full min-h-[300px] md:min-h-[500px] lg:min-h-[700px]">
                     <Image
-                        src="/images/menü-1.png"
+                        src="/images/avantajli-menu-1.png"
                         alt="Avantajlı Menü 1"
                         fill
                         className="object-cover"
@@ -91,7 +91,7 @@ export function AdvantageMenu() {
                 {/* Image Side */}
                 <div className="relative w-full min-h-[300px] md:min-h-[500px] lg:min-h-[700px] order-1 lg:order-2">
                     <Image
-                        src="/images/menü-2.png"
+                        src="/images/avantajli-menu-2.png"
                         alt="Avantajlı Menü 2"
                         fill
                         className="object-cover"
