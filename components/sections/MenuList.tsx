@@ -135,6 +135,9 @@ export function MenuList() {
             </div>
 
             <Container className="relative z-10">
+                <p className="mb-8 text-center text-sm md:text-base font-medium text-[var(--color-text-secondary)] italic">
+                    Fiyatlar 01 Mayıs 2026 Tarihinden İtibaren Geçerlidir.
+                </p>
                 {/* Menu Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-0">
                     {/* Left Column */}

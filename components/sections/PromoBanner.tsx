@@ -60,6 +60,9 @@ export function PromoBanner() {
 
                 {/* Center - 6 Menu Offers */}
                 <div className="relative flex flex-col items-center justify-center py-10 px-4 md:px-8 z-20">
+                    <p className="mb-4 text-center text-xs md:text-sm font-medium text-[var(--color-text-secondary)] italic">
+                        Fiyatlar 01 Mayıs 2026 Tarihinden İtibaren Geçerlidir.
+                    </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
                         {MENU_OFFERS.map((offer, i) => (
                             <motion.div

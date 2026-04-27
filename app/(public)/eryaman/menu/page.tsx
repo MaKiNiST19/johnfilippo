@@ -57,6 +57,9 @@ export default function MenuPage() {
 
             <div className="bg-[var(--color-cream)] min-h-screen pb-20">
                 <Container className="py-8">
+                    <p className="mb-6 text-sm md:text-base font-medium text-[var(--color-text-secondary)] italic">
+                        Fiyatlar 01 Mayıs 2026 Tarihinden İtibaren Geçerlidir.
+                    </p>
                     {categories.map((category, catIndex) => (
                         <section
                             key={category.id}
