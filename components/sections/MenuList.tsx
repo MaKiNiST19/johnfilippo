@@ -8,57 +8,57 @@ import Image from "next/image";
 
 const MENU_ITEMS_LEFT = [
     {
-        name: "Margherita Pizza",
-        price: "249 TL",
-        description: "Rende mozzarella, domates sos, pesto sos, fesleğen",
+        name: "Margarita",
+        price: "279 TL",
+        description: "Domates sos, rende mozarella, pesto sos",
     },
     {
-        name: "Mantarlı Pizza",
-        price: "349 TL",
-        description: "Rende Mozzarella, Domates Sos, Mantar, Ricotta, Kekik, Pesto Sos",
+        name: "Mantarlı",
+        price: "399 TL",
+        description: "Domates sos, rende mozarella, mantar, ricotta, kekik, pesto sos",
     },
     {
-        name: "Sucuklu Pizza",
-        price: "449 TL",
-        description: "Rende Mozzarella, Domates Sos, Dana Sucuk, Mısır",
-    },
-    {
-        name: "Karışık Pizza",
+        name: "Sucuklu",
         price: "499 TL",
-        description: "Rende Mozzarella, Domates Sos, Salam, Sosis, Sucuk, Mantar, Köy Biberi, Kırmızı Biber, Dilim Zeytin, Kekik, Mısır, Cherry Domates",
+        description: "Domates sos, rende mozarella, dana sucuk, mısır",
     },
     {
-        name: "Vejeteryan Pizza",
-        price: "249 TL",
-        description: "Rende Mozzarella, Domates Sos, Patlıcan, Ispanak, Kabak, Mantar, Parmesan",
+        name: "Karışık",
+        price: "549 TL",
+        description: "Domates sos, rende mozarella, dana sosis, dana salam, dana sucuk, mantar, köy biberi, kırmızı biber, dilimlenmiş siyah zeytin, mısır, çeri domates",
+    },
+    {
+        name: "Vejeteryan",
+        price: "279 TL",
+        description: "Domates sos, rende mozarella, közlenmiş patlıcan, ıspanak, kabak, mantar, parmesan",
     },
 ];
 
 const MENU_ITEMS_RIGHT = [
     {
-        name: "Füme Kaburga Pizza",
-        price: "749 TL",
-        description: "Rende mozzarella, domates sos, füme kaburga, roka, parmesan",
+        name: "Füme Kaburga",
+        price: "799 TL",
+        description: "Domates sos, rende mozarella, füme kaburga, roka, parmesan",
     },
     {
-        name: "Ricotta Funghi Pizza",
-        price: "419 TL",
-        description: "Rende Mozzarella, Domates Sos, Ricotta, Kokteyl Domates, Taze Kekik",
+        name: "Ricotta Funghi",
+        price: "459 TL",
+        description: "Krema sos, rende mozarella, ricotta, kültür mantarı, istiridye mantarı, trüff yağı",
     },
     {
-        name: "Bbq Tavuklu Pizza",
-        price: "419 TL",
-        description: "Rende Mozzarella, Domates Sos, Mısır, BBQ Soslu Tavuk Dilimleri, Kırmızı Soğan",
+        name: "BBQ Tavuklu",
+        price: "459 TL",
+        description: "Domates sos, rende mozarella, BBQ sos, 100 gr tavuk göğsü parçaları, mısır, kırmızı soğan",
     },
     {
-        name: "Pesto Pizza",
-        price: "419 TL",
-        description: "Pesto Sos, Suda Mozzarella, Limon Zest, File Badem, Mantar",
+        name: "Pesto",
+        price: "469 TL",
+        description: "Pesto sos, rende mozarella, suda mozarella, limon zest, file badem, mantar",
     },
     {
-        name: "Paris Soslu Pizza",
-        price: "749 TL",
-        description: "Rende mozzarella, paris sos, dana nuar, kibrit patates, parmesan",
+        name: "Paris Soslu",
+        price: "899 TL",
+        description: "Paris sos, rende mozarella, 50 gr. dana nuar, kibrit patates, toz parmesan",
     },
 ];
 

@@ -76,6 +76,7 @@ export default function MenuPage() {
                                             name={item.name}
                                             description={item.description ?? null}
                                             price={item.price}
+                                            badges={item.isNew ? ['YENİ'] : []}
                                         />
                                     </FadeInUp>
                                 ))}
