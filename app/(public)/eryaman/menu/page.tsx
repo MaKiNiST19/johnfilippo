@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     ],
 }
 
-const PHONE_LINK = 'tel:+903121234567'
-const MAPS_LINK = 'https://maps.google.com/?q=John+Filippo+Eryaman+Ankara'
+const PHONE_LINK = 'tel:+903125773999'
+const MAPS_LINK = 'https://maps.google.com/?q=John+Filippo+Pizza+Eryaman'
 
 export default function MenuPage() {
     const categories = MENU_CATEGORIES.filter((c) => c.items.length > 0)

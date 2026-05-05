@@ -918,7 +918,7 @@ BEGIN
     
     -- Insert sample branch
     INSERT INTO branches (business_id, name, slug, address, city, district, phone)
-    VALUES (v_business_id, 'Eryaman Şubesi', 'eryaman', 'Eryaman Mah. Ana Cad. No:1', 'Ankara', 'Etimesgut', '+90 312 123 4567')
+    VALUES (v_business_id, 'Eryaman Şubesi', 'eryaman', 'Şehit Osman Avcı, Malazgirt 1071. Cd. No:46/C-10', 'Ankara', 'Etimesgut', '+90 312 577 39 99')
     RETURNING id INTO v_branch_id;
     
     -- Insert sample menu

@@ -33,13 +33,13 @@ export const metadata: Metadata = {
 // Restaurant info
 const BRANCH_INFO = {
     name: 'John Filippo Eryaman',
-    address: 'Eryaman Mah. Gazi Mustafa Kemal Blv. No:123',
-    city: 'Etimesgut, Ankara',
-    phone: '+90 312 123 4567',
-    phoneLink: 'tel:+903121234567',
-    whatsapp: '+90 532 123 4567',
-    whatsappLink: 'https://wa.me/905321234567',
-    mapsLink: 'https://maps.google.com/?q=John+Filippo+Eryaman+Ankara',
+    address: 'Şehit Osman Avcı, Malazgirt 1071. Cd. No:46/C-10',
+    city: '06824 Etimesgut, Ankara',
+    phone: '0312 577 39 99',
+    phoneLink: 'tel:+903125773999',
+    whatsapp: '0312 577 39 99',
+    whatsappLink: 'https://wa.me/903125773999',
+    mapsLink: 'https://maps.google.com/?q=John+Filippo+Pizza+Eryaman',
     hours: {
         weekdays: '11:00 - 23:00',
         weekend: '11:00 - 24:00',
