@@ -13,33 +13,33 @@ const MENU_OFFERS: MenuOffer[] = [
     {
         title: "Menü 1",
         description: "1 ADET MARGARİTA + 1 ADET KUTU İÇECEK",
-        price: "309.9 ₺",
+        price: "349.90 ₺",
     },
     {
         title: "Menü 2",
         description: "1 ADET 4 PEYNİRLİ + 1 ADET KUTU İÇECEK",
-        price: "509.9 ₺",
+        price: "559.90 ₺",
     },
     {
         title: "Menü 3",
         description: "1 ADET KARIŞIK PİZZA + 1 ADET KUTU İÇECEK",
-        price: "549.9 ₺",
+        price: "609.90 ₺",
     },
     {
         title: "Menü 4",
         description: "1 ADET SUCUKLU PİZZA + 1 ADET KUTU İÇECEK",
-        price: "499.9 ₺",
+        price: "559.90 ₺",
     },
     {
         title: "Menü 5",
         description: "1 ADET FÜME KABURGA PİZZA + 1 ADET KUTU İÇECEK",
-        price: "799.9 ₺",
+        price: "859.90 ₺",
     },
     {
         title: "Menü 6 (İki Kişilik)",
         description:
             "1 ADET KARIŞIK PİZZA, 1 ADET SEÇİLECEK KLASİK PİZZA, 1 ADET ÇITIR TAVUK, 2 ADET TİRAMİSU, 1 ADET LİTRELİK İÇECEK",
-        price: "1399.9 ₺",
+        price: "1649.90 ₺",
     },
 ];
 
