@@ -37,8 +37,8 @@ const BRANCH_INFO = {
     city: '06824 Etimesgut, Ankara',
     phone: '0312 577 39 99',
     phoneLink: 'tel:+903125773999',
-    whatsapp: '0312 577 39 99',
-    whatsappLink: 'https://wa.me/903125773999',
+    whatsapp: '0546 975 68 99',
+    whatsappLink: 'https://wa.me/905469756899',
     mapsLink: 'https://maps.google.com/?q=John+Filippo+Pizza+Eryaman',
     hours: {
         weekdays: '11:00 - 23:00',
